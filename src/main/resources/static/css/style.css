@@ -1,0 +1,169 @@
+/* 公共样式表css */
+html, body {
+	color: #333;
+	margin: 0;
+	height: 100%;
+	font-family: "Myriad Set Pro", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: normal;
+}
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+img {
+	border: 0;
+}
+body {
+	background-color: #3A3A3A;
+	color: #666;
+}
+html, body, div, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, button, fieldset, form, input, legend, textarea, th, td {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: #08acee;
+}
+button {
+	outline: 0;
+}
+img {
+	border: 0;
+}
+button, input, optgroup, select, textarea {
+	margin: 0;
+	font: inherit;
+	color: inherit;
+	outline: none;
+}
+li {
+	list-style: none;
+}
+a {
+	color: #666;
+}
+a:hover {
+	color: #eee;
+}
+.clearfix::after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.clearfix {
+}
+/* 必要布局样式css */
+.like-content {
+	width: 1200px;
+	margin: 0 auto;
+}
+.like-fl {
+	float: left;
+	position: relative;
+}
+.guess-box {
+	width: 1022px;
+	height: 352px;
+	overflow: hidden;
+	background-repeat: repeat;
+	position: relative;
+	top: 1px;
+	padding-top: 22px;
+	box-sizing: border-box;
+	background-color: #F9F9F9;
+	border: 1px solid #F0F0F0;
+}
+.guess-box ul li {
+	transition:all .7s ease 0s;
+	width: 239px;
+	height: 144px;
+	border: 1px solid #c9eafd;
+	border-radius: 2px;
+	margin: 14px 0 0px 13px;
+	background-color: #f7fcff;
+	padding: 20px 30px;
+	float: left;
+}
+.guess-box ul li:hover {
+	border: 1px solid #5a5a5a;
+	background-color: #2D3BA3;
+	box-shadow: 1px 1px 16px 1px hsla(186, 84%, 81%, 0.7);color: aliceblue
+}
+.switch {
+	text-align: center;
+	color: gray;
+	font-size: 14px;
+	font-weight: bold;
+}
+.guess-switch {
+	background: url(../images/like-sw.png) no-repeat 0px 2px;
+	color: #7A7A7A;
+	font-size: 14px;
+	padding-left: 24px;
+	position: absolute;
+	top: 9px;
+	right: 16px;
+	cursor: pointer;
+	height: 20px;
+	line-height: 20px;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+.guess-switch .switch:hover {
+	color: #169d84;
+}
+.guess-item-text {
+	font-size: 14px;
+	margin-bottom: 10px;
+	display: block;
+	width: 183px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.guess-item-text:hover {
+	color: #38bca4;
+}
+.icon-add {
+	width: 12px;
+	height: 14px;
+	background: url(../images/adress.png) no-repeat;
+	margin-right: 5px;
+	margin-top: 2px;
+	float: left;
+}
+.icon-time {
+	width: 12px;
+	height: 14px;
+	background: url(../images/time.png) no-repeat;
+	margin-right: 5px;
+	margin-top: 2px;
+	float: left;
+}
+.icon-til {
+	width: 144px;
+	color: #9c9c9c;
+	font-size: 12px;
+	overflow: hidden;
+	white-space: nowrap;
+	float: left;
+}
+.price {
+	color: #ff7011;
+	font-size: 19px;
+	margin-top: 10px;
+	font-family: "Microsoft YaHei";
+}
+.guess-mba {
+	margin-bottom: 10px;
+}

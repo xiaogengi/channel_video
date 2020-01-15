@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xg.channel_video.video.mapper.VideoMapper">
+
+
+    <insert id="addVideo">
+        insert into xg_video (video_name, img_file, video_file, user_id)
+                    values   (#{video.videoName}, #{video.imgFile}, #{video.videoFile}, #{video.userId});
+    </insert>
+
+
+    <select id="videoList" resultType="com.xg.channel_video.video.entity.VideoEntity">
+        select * from xg_video limit 8
+    </select>
+
+    <select id="pageVideoCount" resultType="int">
+        select count(0) from xg_video
+    </select>
+
+    <select id="pageVideoList" resultType="com.xg.channel_video.video.entity.VideoEntity">
+        select * from xg_video limit #{i},#{pageSize}
+    </select>
+
+    <select id="getImgFileById" resultType="string">
+        select img_file from xg_video where id = #{id}
+    </select>
+
+
+     <select id="getVideoPath" resultType="string">
+        select video_file from xg_video where id = #{id}
+    </select>
+
+
+
+</mapper>

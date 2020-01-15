@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xg.channel_video.login.mapper.LoginMapper">
+
+    <select id="getUserByAccount" resultType="int">
+        select count(0) from xg_user where user_account = #{account};
+    </select>
+
+    <insert id="registerUser">
+        insert into xg_user (user_account, user_pass, user_sex, user_name) values
+                            (#{account}, #{register.userPass}, #{register.userSex}, #{register.userName});
+    </insert>
+
+
+    <select id="getUserByUserAccount" resultType="string">
+        select user_pass from xg_user where user_account = #{account};
+    </select>
+
+
+</mapper>
