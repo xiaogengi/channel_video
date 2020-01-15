@@ -36,9 +36,11 @@ public class VideoServiceImpl implements IVideoService {
     @Autowired
     private UserMapper userMapper;
 
-    private final static String VIDEO_FILE_URL = "/Users/didi/Desktop/video";
+    public final static String SYSTEM_URL = "/Users/didi/Desktop";
 
-    private final static String IMG_FILE_URL = "/Users/didi/Desktop/img";
+    private final static String VIDEO_FILE_URL = SYSTEM_URL + "/video";
+
+    private final static String IMG_FILE_URL = SYSTEM_URL + "/img";
 
     private final static String VIDEO_ = "video/";
 

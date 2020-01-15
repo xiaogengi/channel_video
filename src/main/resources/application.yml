@@ -40,8 +40,3 @@ logging:
         mapper: debug
 
 
-file:
-  staticAccessPath: /getFile/**
-  uploadFolder: /Users/didi/Desktop/
-
-
