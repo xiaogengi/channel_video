@@ -36,15 +36,21 @@ public class VideoServiceImpl implements IVideoService {
     @Autowired
     private UserMapper userMapper;
 
-    public final static String SYSTEM_URL = "/Users/didi/Desktop";
+    //todo
+    public final static String SYSTEM_URL = "/Users/didi/Desktop/";
+    //public final static String SYSTEM_URL = "/Users/didi/Desktop/";
 
     private final static String VIDEO_FILE_URL = SYSTEM_URL + "/video";
 
     private final static String IMG_FILE_URL = SYSTEM_URL + "/img";
 
+    public final static String USER_IMG_FILE_URL = SYSTEM_URL + "/userImg";
+
     private final static String VIDEO_ = "video/";
 
     private final static String IMG_ = "img/";
+
+    public final static String USER_IMG_ = "userImg/";
 
     private final static BigDecimal DEFAULT_BIG_DECIMAL = new BigDecimal("8");
 

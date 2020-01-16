@@ -30,6 +30,7 @@
         var videoFile = $("#videoFile").val();
         if(videoFile == null || videoFile == ""){alert("视频不可为空"); return;}
 
+
         if(!uploadStatus){
             alert(document.getElementById("videoName").value + " - - - 正在上传中");
             return;

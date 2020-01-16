@@ -27,7 +27,9 @@
 
         </ul>
         <div class="guess-switch">
+            <img src="/getFile/${userImgPath}" width="20px" height="20px">
             <input type="button" value="添加视频" onclick="addVideo()">
+            <input type="button" value="更换头像" onclick="updateImg()">
             <font>当前第[ <font id = "page">${page.page}</font> ]页</font>&nbsp;
             <input type="button" value="上一页" onclick="page(1)">&nbsp;
             <input type="button" value="下一页" onclick="page(2)">&nbsp;
@@ -39,6 +41,10 @@
   </center>
 </div>
 <script type="text/javascript">
+
+    function updateImg() {
+        location.href = "/updateImg";
+    }
 
     function addVideo() {
         location.href = "/addVideo";

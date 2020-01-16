@@ -160,6 +160,7 @@ body {
 
 		var webSocket =
 				new WebSocket('ws://127.0.0.1:8080/MessageWebsocket/'+document.getElementById("videoId").value);
+				//new WebSocket('ws://127.0.0.1:8080/MessageWebsocket/'+document.getElementById("videoId").value);
 
 		//错误通知
 		webSocket.onerror = function(event) {
@@ -321,7 +322,8 @@ body {
 				"key":'message',
 				"content":{
 					"userName":$("#hiddenName").val(),
-					"msg":text
+					"msg":text,
+					"userId": $("#hiddenId").val()
 				}
 			};
 			document.getElementById("content").value = '';

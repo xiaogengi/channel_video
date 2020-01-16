@@ -9,13 +9,13 @@
     </select>
 
     <insert id="registerUser">
-        insert into xg_user (user_account, user_pass, user_sex, user_name) values
-                            (#{account}, #{register.userPass}, #{register.userSex}, #{register.userName});
+        insert into xg_user (user_account, user_pass, user_sex, user_name, user_img) values
+                            (#{account}, #{register.userPass}, #{register.userSex}, #{register.userName}, #{userImgPath});
     </insert>
 
 
-    <select id="getUserByUserAccount" resultType="string">
-        select user_pass from xg_user where user_account = #{account};
+    <select id="getUserByUserAccount" resultType="com.xg.channel_video.login.entity.UserDTO">
+        select user_pass,user_img from xg_user where user_account = #{account};
     </select>
 
 

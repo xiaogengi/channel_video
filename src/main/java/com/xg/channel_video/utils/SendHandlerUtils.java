@@ -29,6 +29,24 @@ public class SendHandlerUtils {
         });
     }
 
+
+    public static void sendHandler(String key, String msg, Integer videoId,Session session){
+        MessageController.VIDEO_SESSION_MAP.get(videoId).stream().forEach(item -> {
+            try {
+                JSONObject json = new JSONObject();
+                json.put("key",key);
+                if(item.equals(session)){
+                    json.put("content", msg.replace("red","blue"));
+                }else{
+                    json.put("content", msg);
+                }
+                item.getBasicRemote().sendText(json.toJSONString());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
     public static void sendHandler(String key, String msg, Session session){
         try {
             JSONObject json = new JSONObject();

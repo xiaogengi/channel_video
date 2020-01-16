@@ -3,15 +3,20 @@ package com.xg.channel_video.login.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.xg.channel_video.login.entity.LoginParamEntity;
 import com.xg.channel_video.login.entity.RegisterParamEntity;
+import com.xg.channel_video.login.entity.UserDTO;
 import com.xg.channel_video.login.mapper.LoginMapper;
 import com.xg.channel_video.login.service.ILoginService;
+import com.xg.channel_video.utils.DownloadFileUtils;
 import com.xg.channel_video.utils.Md5Utils;
 import com.xg.channel_video.utils.ResultUtils;
+import com.xg.channel_video.video.service.impl.VideoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @program: channel_video
@@ -21,6 +26,9 @@ import java.util.Random;
  **/
 @Service
 public class LoginServiceImpl implements ILoginService {
+
+    public static final Map<String,String> USER_IMG = new ConcurrentHashMap<>();
+
 
     @Autowired
     private LoginMapper loginMapper;
@@ -46,7 +54,11 @@ public class LoginServiceImpl implements ILoginService {
             String Md5Pass = Md5Utils.encode(param.getUserPass());
             param.setUserPass(Md5Pass);
 
-            int register = loginMapper.registerUser(param,account);
+            //保存头像
+            String userImgPath = VideoServiceImpl.USER_IMG_ + DownloadFileUtils.downloadFileUtils(param.getUserImg(), VideoServiceImpl.USER_IMG_FILE_URL, account.toString());
+
+            int register = loginMapper.registerUser(param,account,userImgPath);
+
             if(register == 0){
                 jsonResult = ResultUtils.resultErrorMsg(jsonResult,"注册失败，请稍后重试！！");
             }else{
@@ -75,10 +87,12 @@ public class LoginServiceImpl implements ILoginService {
             param.setUserPass(Md5Utils.encode(param.getUserPass()));
         }
 
-        String pass = loginMapper.getUserByUserAccount(param.getUserAccount());
-        if(pass == null || pass == "" || !pass.equals(param.getUserPass())){
+        UserDTO dto = loginMapper.getUserByUserAccount(param.getUserAccount());
+        if(dto == null || dto.getUserPass() == "" || !dto.getUserPass().equals(param.getUserPass())){
             jsonResult = ResultUtils.resultErrorMsg(jsonResult,"密码错误！！！");
         }else{
+            //提取用户图片路径
+            USER_IMG.put(param.getUserAccount(),dto.getUserImg());
             request.getSession().setAttribute("userId",param.getUserAccount());
             JSONObject data = new JSONObject();
             data.put("user",param);

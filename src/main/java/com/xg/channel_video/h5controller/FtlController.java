@@ -1,8 +1,10 @@
 package com.xg.channel_video.h5controller;
 
+import com.xg.channel_video.login.service.impl.LoginServiceImpl;
 import com.xg.channel_video.video.entity.Page;
 import com.xg.channel_video.video.entity.VideoEntity;
 import com.xg.channel_video.video.service.IVideoService;
+import com.xg.channel_video.video.service.impl.VideoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -74,7 +76,7 @@ public class FtlController {
 
         //List<VideoEntity> list = videoService.videoList();
         page = videoService.pageHandler(page);
-
+        model.addObject("userImgPath", LoginServiceImpl.USER_IMG.get(request.getSession().getAttribute("userId")));
         model.addObject("page",page);
         return model;
     }
@@ -91,6 +93,18 @@ public class FtlController {
             return "login/login";
         }
         return "video/addVideo";
+    }
+
+
+    /**
+     *  修改用户头像页面
+     */
+    @RequestMapping("updateImg")
+    public String updateImg(HttpServletRequest request){
+        if(request.getSession().getAttribute("userId") == null || request.getSession().getAttribute("userId") == ""){
+            return "login/login";
+        }
+        return "user/updateImg";
     }
 
 

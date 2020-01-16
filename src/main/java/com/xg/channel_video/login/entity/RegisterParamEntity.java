@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @program: channel_video
@@ -22,6 +23,8 @@ public class RegisterParamEntity {
     private String userPass;
 
     private Integer userSex;
+
+    private MultipartFile userImg;
 
 
 

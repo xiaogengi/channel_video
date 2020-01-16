@@ -8,5 +8,9 @@
         select user_name from xg_user where user_account = #{id}
     </select>
 
+    <update id="updateUserImg">
+        update xg_user set user_img = #{userImgPath} where user_account = #{userId}
+    </update>
+
 
 </mapper>
