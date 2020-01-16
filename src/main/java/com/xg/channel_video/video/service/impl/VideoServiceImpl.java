@@ -37,8 +37,8 @@ public class VideoServiceImpl implements IVideoService {
     private UserMapper userMapper;
 
     //todo
-    public final static String SYSTEM_URL = "/Users/didi/Desktop/";
     //public final static String SYSTEM_URL = "/Users/didi/Desktop/";
+    public final static String SYSTEM_URL = "C:\\Users\\1115393087\\Desktop\\";
 
     private final static String VIDEO_FILE_URL = SYSTEM_URL + "/video";
 

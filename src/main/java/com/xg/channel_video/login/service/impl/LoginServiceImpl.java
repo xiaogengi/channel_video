@@ -92,7 +92,7 @@ public class LoginServiceImpl implements ILoginService {
             jsonResult = ResultUtils.resultErrorMsg(jsonResult,"密码错误！！！");
         }else{
             //提取用户图片路径
-            USER_IMG.put(param.getUserAccount(),dto.getUserImg());
+            USER_IMG.put(param.getUserAccount(),dto.getUserImg()==null || dto.getUserImg() == "" ?"":dto.getUserImg());
             request.getSession().setAttribute("userId",param.getUserAccount());
             JSONObject data = new JSONObject();
             data.put("user",param);
