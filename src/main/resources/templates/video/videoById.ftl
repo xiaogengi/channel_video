@@ -159,8 +159,8 @@ body {
 		}
 
 		var webSocket =
-				//new WebSocket('ws://127.0.0.1:8080/MessageWebsocket/'+document.getElementById("videoId").value);
-                new WebSocket('ws://6mx9hud.hn3.mofasuidao.cn/MessageWebsocket/'+document.getElementById("videoId").value);
+				new WebSocket('ws://120.9.185.46:8000/MessageWebsocket/'+document.getElementById("videoId").value);
+//                new WebSocket('ws://6mx9hud.hn3.mofasuidao.cn/MessageWebsocket/'+document.getElementById("videoId").value);
 
         //错误通知
 		webSocket.onerror = function(event) {
